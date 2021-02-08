@@ -5,4 +5,4 @@ RUN mkdir -p /project/train/src_repo && mkdir -p /project/train/result-graphs &&
 
 # 安装训练环境依赖端软件，请根据实际情况编写自己的代码
 COPY ./ /project/train/src_repo/
-RUN python3.6 -m pip install -i https://pypi.tuna.tsinghua.edu.cn/simple -r /project/train/src_repo/requirements.txt
+RUN python3.6 -m pip install -i http://mirrors.aliyun.com/pypi/simple/ -r /project/train/src_repo/requirements.txt
