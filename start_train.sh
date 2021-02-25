@@ -3,6 +3,10 @@
 log_file=/project/train/log/log.txt
 dataset_dir=../preprocessed_dataset
 
+if [ ! -d "/project/train/log/" ]; then
+  mkdir /project/train/log/
+fi
+
 cd /project/train/src_repo
 
 echo "Preparing..."

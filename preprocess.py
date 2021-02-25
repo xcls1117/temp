@@ -65,6 +65,7 @@ def load_and_save(save_path, xmls_set, xmls_path):
         img = cv2.imread(img_path)
         if img is None:
             print('img is None: ', img_path)
+            continue
         height, width = img.shape[:2]
 
         save_txt_path = os.path.join(save_path, xmlFilePath.split('.')[0] + '.txt')
@@ -153,6 +154,13 @@ def split_train_val(image_src_path, txt_path, target_path):
         os.makedirs(val_label_path)
 
     filelists = os.listdir(image_src_path)
+
+    for img_file in filelists:
+        img = cv2.imread(os.path.join(image_src_path, img_file))
+        if img is None:
+            filelists.remove(img_file)
+            print('remove empty image: ', img_file)
+
     random.seed(42)
     random.shuffle(filelists)
     train_ratio = 0.9
